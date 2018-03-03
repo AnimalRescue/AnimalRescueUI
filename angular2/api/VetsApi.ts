@@ -1500,14 +1500,35 @@ export class VetsApi {
     /**
      * With no parameters, returns all kennels in a Room
      * @summary returns all kennels in a Room
+     * @param locationId 
+     * @param buildingId 
+     * @param roomId 
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      */
-    public searchKennels (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Kennel>> {
-        const localVarPath = this.basePath + '/location/building/room/kennel';
+    public searchKennels (locationId: string, buildingId: string, roomId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Kennel>> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room/{roomId}/kennel'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
+            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling searchKennels.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling searchKennels.');
+        }
+
+        // verify required parameter 'roomId' is not null or undefined
+        if (roomId === null || roomId === undefined) {
+            throw new Error('Required parameter roomId was null or undefined when calling searchKennels.');
+        }
+
         if (limit !== undefined) {
             queryParameters['limit'] = limit;
         }
@@ -1564,14 +1585,28 @@ export class VetsApi {
     /**
      * With no parameters, returns all Rooms in a Building
      * @summary searches all Rooms in a Building at a Location
+     * @param locationId 
+     * @param buildingId 
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      */
-    public searchRoomss (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
-        const localVarPath = this.basePath + '/location/building/room';
+    public searchRoomss (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling searchRoomss.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling searchRoomss.');
+        }
+
         if (limit !== undefined) {
             queryParameters['limit'] = limit;
         }
