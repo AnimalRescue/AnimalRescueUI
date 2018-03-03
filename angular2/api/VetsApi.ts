@@ -75,6 +75,35 @@ export class VetsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Adds a new Kennel to the Rescue
+     * @summary adds a Kennel to the rescue
+     * @param kennel Kennel to add to the Rescue
+     */
+    public addKennel (kennel: models.Kennel, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/kennels';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'kennel' is not null or undefined
+        if (kennel === null || kennel === undefined) {
+            throw new Error('Required parameter kennel was null or undefined when calling addKennel.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: kennel,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Adds a new Kennel to the specified Room
      * @summary creates a Kennel in the specified Room
      * @param locationId 
@@ -537,6 +566,35 @@ export class VetsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Deletes an existing Kennel by id
+     * @summary deletes a Kennel by id
+     * @param id 
+     */
+    public deleteKennelById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/kennels/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteKennelById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Deletes an existing Location by id
      * @summary deletes a Location by id
      * @param id 
@@ -968,6 +1026,77 @@ export class VetsApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getFosterById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Returns details about a specific Kennel 
+     * @summary returns a specific location for the Rescue
+     * @param id 
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getKennelById (id: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Kennel> {
+        const localVarPath = this.basePath + '/kennels/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getKennelById.');
+        }
+
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * With no parameters, returns all Kennels for the Rescue 
+     * @summary searches all Kennels for the Rescue
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getKennels (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Kennel>> {
+        const localVarPath = this.basePath + '/kennels';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -1448,6 +1577,42 @@ export class VetsApi {
             method: 'PATCH',
             url: localVarPath,
             data: patchFoster,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Kennel by id with only elements that are changing
+     * @summary updates a Kennel by id
+     * @param id unique id of Kennel to patch
+     * @param patchKennel partial json object of Kennel with fields to patch
+     */
+    public patchKennelById (id: string, patchKennel: models.Kennel, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/kennels/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchKennelById.');
+        }
+
+        // verify required parameter 'patchKennel' is not null or undefined
+        if (patchKennel === null || patchKennel === undefined) {
+            throw new Error('Required parameter patchKennel was null or undefined when calling patchKennelById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchKennel,
                         params: queryParameters,
             headers: headerParams
         };
@@ -2079,6 +2244,42 @@ export class VetsApi {
             method: 'PUT',
             url: localVarPath,
             data: updateFoster,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Location by id
+     * @summary updates a Kennel by id
+     * @param id 
+     * @param updateKennel unique id of Kennel to update
+     */
+    public updateKennelById (id: string, updateKennel: models.Kennel, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/kennels/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateKennelById.');
+        }
+
+        // verify required parameter 'updateKennel' is not null or undefined
+        if (updateKennel === null || updateKennel === undefined) {
+            throw new Error('Required parameter updateKennel was null or undefined when calling updateKennelById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateKennel,
                         params: queryParameters,
             headers: headerParams
         };
