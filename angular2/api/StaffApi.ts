@@ -542,6 +542,35 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Deletes an existing Volunteer by id
+     * @summary retrieves a Volunteer by id
+     * @param id 
+     */
+    public deleteVolunteerById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/volunteer/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteVolunteerById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * used to check on the api status
      * @summary reports whether the API is up and running
      */
@@ -859,6 +888,35 @@ export class StaffApi {
 
         if (offset !== undefined) {
             queryParameters['offset'] = offset;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Gets an existing Volunteer by id
+     * @summary retrieves a Volunteer by id
+     * @param id 
+     */
+    public getVolunteerById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Volunteer> {
+        const localVarPath = this.basePath + '/volunteer/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getVolunteerById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -1224,6 +1282,42 @@ export class StaffApi {
             method: 'PATCH',
             url: localVarPath,
             data: patchLocation,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Volunteer by id with only elements that are changing
+     * @summary updates a Volunteer by id
+     * @param id unique id of Volunteer to patch
+     * @param patchVolunteer partial json object of Volunteer with fields to patch
+     */
+    public patchVolunteerById (id: string, patchVolunteer: models.Volunteer, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/volunteer/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchVolunteerById.');
+        }
+
+        // verify required parameter 'patchVolunteer' is not null or undefined
+        if (patchVolunteer === null || patchVolunteer === undefined) {
+            throw new Error('Required parameter patchVolunteer was null or undefined when calling patchVolunteerById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchVolunteer,
                         params: queryParameters,
             headers: headerParams
         };
@@ -2013,6 +2107,42 @@ export class StaffApi {
             method: 'PUT',
             url: localVarPath,
             data: updateLocation,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Volunteer by id
+     * @summary updates a Volunteer by id
+     * @param id 
+     * @param updateFoster unique id of Volunteer to update
+     */
+    public updateVolunteerById (id: string, updateFoster: models.Volunteer, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/volunteer/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateVolunteerById.');
+        }
+
+        // verify required parameter 'updateFoster' is not null or undefined
+        if (updateFoster === null || updateFoster === undefined) {
+            throw new Error('Required parameter updateFoster was null or undefined when calling updateVolunteerById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateFoster,
                         params: queryParameters,
             headers: headerParams
         };
