@@ -663,7 +663,7 @@ export class StaffApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public searchBuildings (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Building>> {
-        const localVarPath = this.basePath + '/building';
+        const localVarPath = this.basePath + '/location/building';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1002,7 +1002,7 @@ export class StaffApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public searchKennels (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Kennel>> {
-        const localVarPath = this.basePath + '/kennel';
+        const localVarPath = this.basePath + '/location/building/room/kennel';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1066,7 +1066,7 @@ export class StaffApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public searchRoomss (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
-        const localVarPath = this.basePath + '/room';
+        const localVarPath = this.basePath + '/location/building/room';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
