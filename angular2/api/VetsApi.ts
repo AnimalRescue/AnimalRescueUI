@@ -104,6 +104,49 @@ export class VetsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Adds a new Room to the specified Location
+     * @summary creates a Room in the specified Building
+     * @param locationId 
+     * @param buildingId 
+     * @param room Room to create
+     */
+    public addRoomToBuilding (locationId: string, buildingId: string, room: models.Room, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling addRoomToBuilding.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling addRoomToBuilding.');
+        }
+
+        // verify required parameter 'room' is not null or undefined
+        if (room === null || room === undefined) {
+            throw new Error('Required parameter room was null or undefined when calling addRoomToBuilding.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: room,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * adds a Cat with a unique id
      * @summary creates a new Cat
      * @param catToCreate full Cat object with new id
@@ -1590,7 +1633,7 @@ export class VetsApi {
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      */
-    public searchRoomss (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
+    public searchRooms (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
         const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
@@ -1599,12 +1642,12 @@ export class VetsApi {
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
         // verify required parameter 'locationId' is not null or undefined
         if (locationId === null || locationId === undefined) {
-            throw new Error('Required parameter locationId was null or undefined when calling searchRoomss.');
+            throw new Error('Required parameter locationId was null or undefined when calling searchRooms.');
         }
 
         // verify required parameter 'buildingId' is not null or undefined
         if (buildingId === null || buildingId === undefined) {
-            throw new Error('Required parameter buildingId was null or undefined when calling searchRoomss.');
+            throw new Error('Required parameter buildingId was null or undefined when calling searchRooms.');
         }
 
         if (limit !== undefined) {
