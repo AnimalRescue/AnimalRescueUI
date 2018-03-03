@@ -99,6 +99,56 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Adds a new Kennel to the specified Room
+     * @summary creates a Kennel in the specified Room
+     * @param locationId 
+     * @param buildingId 
+     * @param roomId 
+     * @param kennel Room to create
+     */
+    public addKennelToRoom (locationId: string, buildingId: string, roomId: string, kennel: models.Kennel, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room/{roomId}/kennel'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
+            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling addKennelToRoom.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling addKennelToRoom.');
+        }
+
+        // verify required parameter 'roomId' is not null or undefined
+        if (roomId === null || roomId === undefined) {
+            throw new Error('Required parameter roomId was null or undefined when calling addKennelToRoom.');
+        }
+
+        // verify required parameter 'kennel' is not null or undefined
+        if (kennel === null || kennel === undefined) {
+            throw new Error('Required parameter kennel was null or undefined when calling addKennelToRoom.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: kennel,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Adds a new Location to the Rescue
      * @summary adds a Location to the rescue
      * @param location Location to add to the Rescue
@@ -330,6 +380,42 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Deletes an existing Building at a Location by id
+     * @summary deletes a Location by id
+     * @param locationId 
+     * @param buildingId 
+     */
+    public deleteBuildingAtLocationById (locationId: string, buildingId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling deleteBuildingAtLocationById.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling deleteBuildingAtLocationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Deletes an existing Cat by id
      * @summary retrieves a Cat by id
      * @param id 
@@ -475,42 +561,6 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Deletes an existing Building at a Location by id
-     * @summary deletes a Location by id
-     * @param locationId 
-     * @param buildingId 
-     */
-    public deleteLocationBuildingById (locationId: string, buildingId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
-            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
-            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'locationId' is not null or undefined
-        if (locationId === null || locationId === undefined) {
-            throw new Error('Required parameter locationId was null or undefined when calling deleteLocationBuildingById.');
-        }
-
-        // verify required parameter 'buildingId' is not null or undefined
-        if (buildingId === null || buildingId === undefined) {
-            throw new Error('Required parameter buildingId was null or undefined when calling deleteLocationBuildingById.');
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'DELETE',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
      * Deletes an existing Location by id
      * @summary deletes a Location by id
      * @param id 
@@ -598,7 +648,7 @@ export class AdminsApi {
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      */
-    public getBuildingById (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Location> {
+    public getBuildingAtLocationById (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Location> {
         const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
@@ -607,12 +657,12 @@ export class AdminsApi {
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
         // verify required parameter 'locationId' is not null or undefined
         if (locationId === null || locationId === undefined) {
-            throw new Error('Required parameter locationId was null or undefined when calling getBuildingById.');
+            throw new Error('Required parameter locationId was null or undefined when calling getBuildingAtLocationById.');
         }
 
         // verify required parameter 'buildingId' is not null or undefined
         if (buildingId === null || buildingId === undefined) {
-            throw new Error('Required parameter buildingId was null or undefined when calling getBuildingById.');
+            throw new Error('Required parameter buildingId was null or undefined when calling getBuildingAtLocationById.');
         }
 
         if (limit !== undefined) {
@@ -643,7 +693,7 @@ export class AdminsApi {
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      */
-    public getBuildings (locationId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Building>> {
+    public getBuildingsAtLocation (locationId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Building>> {
         const localVarPath = this.basePath + '/location/{locationId}/building'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)));
 
@@ -651,7 +701,7 @@ export class AdminsApi {
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
         // verify required parameter 'locationId' is not null or undefined
         if (locationId === null || locationId === undefined) {
-            throw new Error('Required parameter locationId was null or undefined when calling getBuildings.');
+            throw new Error('Required parameter locationId was null or undefined when calling getBuildingsAtLocation.');
         }
 
         if (limit !== undefined) {
@@ -834,6 +884,58 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * With no parameters, returns all Donors. Allows filters. 
+     * @summary searches animal rescue doners
+     * @param state state to retrieve counties for
+     * @param searchString pass an optional search string for looking up Fosters
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     * @param fromDate Specifies the first intake date to return
+     */
+    public getDonors (state: string, searchString?: string, limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Donor>> {
+        const localVarPath = this.basePath + '/donor';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'state' is not null or undefined
+        if (state === null || state === undefined) {
+            throw new Error('Required parameter state was null or undefined when calling getDonors.');
+        }
+
+        if (searchString !== undefined) {
+            queryParameters['searchString'] = searchString;
+        }
+
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        if (fromDate !== undefined) {
+            queryParameters['fromDate'] = fromDate;
+        }
+
+        if (state !== undefined) {
+            queryParameters['state'] = state;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Gets an existing Foster by id
      * @summary retrieves a Foster by id
      * @param id 
@@ -847,6 +949,59 @@ export class AdminsApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getFosterById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * With no parameters, returns all kennels in a Room
+     * @summary returns all kennels in a Room
+     * @param locationId 
+     * @param buildingId 
+     * @param roomId 
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getKennelsInRoom (locationId: string, buildingId: string, roomId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Kennel>> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room/{roomId}/kennel'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
+            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling getKennelsInRoom.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling getKennelsInRoom.');
+        }
+
+        // verify required parameter 'roomId' is not null or undefined
+        if (roomId === null || roomId === undefined) {
+            throw new Error('Required parameter roomId was null or undefined when calling getKennelsInRoom.');
+        }
+
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -878,6 +1033,84 @@ export class AdminsApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getLocationById.');
+        }
+
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * With no parameters, returns all Locations for the Rescue 
+     * @summary searches all locations for the Rescue
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getLocations (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Location>> {
+        const localVarPath = this.basePath + '/location';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * With no parameters, returns all Rooms in a Building
+     * @summary searches all Rooms in a Building at a Location
+     * @param locationId 
+     * @param buildingId 
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getRoomsInBuilding (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling getRoomsInBuilding.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling getRoomsInBuilding.');
         }
 
         if (limit !== undefined) {
@@ -958,6 +1191,49 @@ export class AdminsApi {
             method: 'GET',
             url: localVarPath,
                                     params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Location by id with only elements that are changing
+     * @summary updates a Location by id
+     * @param locationId 
+     * @param buildingId 
+     * @param patchLocation partial json object of Location with fields to patch
+     */
+    public patchBuildingAtLocationById (locationId: string, buildingId: string, patchLocation: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling patchBuildingAtLocationById.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling patchBuildingAtLocationById.');
+        }
+
+        // verify required parameter 'patchLocation' is not null or undefined
+        if (patchLocation === null || patchLocation === undefined) {
+            throw new Error('Required parameter patchLocation was null or undefined when calling patchBuildingAtLocationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchLocation,
+                        params: queryParameters,
             headers: headerParams
         };
 
@@ -1137,49 +1413,6 @@ export class AdminsApi {
             method: 'PATCH',
             url: localVarPath,
             data: patchFoster,
-                        params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
-     * Updates an existing Location by id with only elements that are changing
-     * @summary updates a Location by id
-     * @param locationId 
-     * @param buildingId 
-     * @param patchLocation partial json object of Location with fields to patch
-     */
-    public patchLocationBuildingById (locationId: string, buildingId: string, patchLocation: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
-            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
-            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'locationId' is not null or undefined
-        if (locationId === null || locationId === undefined) {
-            throw new Error('Required parameter locationId was null or undefined when calling patchLocationBuildingById.');
-        }
-
-        // verify required parameter 'buildingId' is not null or undefined
-        if (buildingId === null || buildingId === undefined) {
-            throw new Error('Required parameter buildingId was null or undefined when calling patchLocationBuildingById.');
-        }
-
-        // verify required parameter 'patchLocation' is not null or undefined
-        if (patchLocation === null || patchLocation === undefined) {
-            throw new Error('Required parameter patchLocation was null or undefined when calling patchLocationBuildingById.');
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'PATCH',
-            url: localVarPath,
-            data: patchLocation,
                         params: queryParameters,
             headers: headerParams
         };
@@ -1471,58 +1704,6 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * With no parameters, returns all Donors. Allows filters. 
-     * @summary searches animal rescue doners
-     * @param state state to retrieve counties for
-     * @param searchString pass an optional search string for looking up Fosters
-     * @param limit Limits the number of items on a page
-     * @param offset Specifies the page number of the artists to be displayed
-     * @param fromDate Specifies the first intake date to return
-     */
-    public searchDonors (state: string, searchString?: string, limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Donor>> {
-        const localVarPath = this.basePath + '/donor';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'state' is not null or undefined
-        if (state === null || state === undefined) {
-            throw new Error('Required parameter state was null or undefined when calling searchDonors.');
-        }
-
-        if (searchString !== undefined) {
-            queryParameters['searchString'] = searchString;
-        }
-
-        if (limit !== undefined) {
-            queryParameters['limit'] = limit;
-        }
-
-        if (offset !== undefined) {
-            queryParameters['offset'] = offset;
-        }
-
-        if (fromDate !== undefined) {
-            queryParameters['fromDate'] = fromDate;
-        }
-
-        if (state !== undefined) {
-            queryParameters['state'] = state;
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'GET',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
      * With no parameters, returns all registered Fosters. Allows filters. 
      * @summary searches animal fosters
      * @param searchString pass an optional search string for looking up Fosters
@@ -1586,137 +1767,6 @@ export class AdminsApi {
 
         if (searchString !== undefined) {
             queryParameters['searchString'] = searchString;
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'GET',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
-     * With no parameters, returns all kennels in a Room
-     * @summary returns all kennels in a Room
-     * @param locationId 
-     * @param buildingId 
-     * @param roomId 
-     * @param limit Limits the number of items on a page
-     * @param offset Specifies the page number of the artists to be displayed
-     */
-    public searchKennels (locationId: string, buildingId: string, roomId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Kennel>> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room/{roomId}/kennel'
-            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
-            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
-            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'locationId' is not null or undefined
-        if (locationId === null || locationId === undefined) {
-            throw new Error('Required parameter locationId was null or undefined when calling searchKennels.');
-        }
-
-        // verify required parameter 'buildingId' is not null or undefined
-        if (buildingId === null || buildingId === undefined) {
-            throw new Error('Required parameter buildingId was null or undefined when calling searchKennels.');
-        }
-
-        // verify required parameter 'roomId' is not null or undefined
-        if (roomId === null || roomId === undefined) {
-            throw new Error('Required parameter roomId was null or undefined when calling searchKennels.');
-        }
-
-        if (limit !== undefined) {
-            queryParameters['limit'] = limit;
-        }
-
-        if (offset !== undefined) {
-            queryParameters['offset'] = offset;
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'GET',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
-     * With no parameters, returns all Locations for the Rescue 
-     * @summary searches all locations for the Rescue
-     * @param limit Limits the number of items on a page
-     * @param offset Specifies the page number of the artists to be displayed
-     */
-    public searchLocations (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Location>> {
-        const localVarPath = this.basePath + '/location';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        if (limit !== undefined) {
-            queryParameters['limit'] = limit;
-        }
-
-        if (offset !== undefined) {
-            queryParameters['offset'] = offset;
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'GET',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
-     * With no parameters, returns all Rooms in a Building
-     * @summary searches all Rooms in a Building at a Location
-     * @param locationId 
-     * @param buildingId 
-     * @param limit Limits the number of items on a page
-     * @param offset Specifies the page number of the artists to be displayed
-     */
-    public searchRooms (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room'
-            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
-            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'locationId' is not null or undefined
-        if (locationId === null || locationId === undefined) {
-            throw new Error('Required parameter locationId was null or undefined when calling searchRooms.');
-        }
-
-        // verify required parameter 'buildingId' is not null or undefined
-        if (buildingId === null || buildingId === undefined) {
-            throw new Error('Required parameter buildingId was null or undefined when calling searchRooms.');
-        }
-
-        if (limit !== undefined) {
-            queryParameters['limit'] = limit;
-        }
-
-        if (offset !== undefined) {
-            queryParameters['offset'] = offset;
         }
 
         let httpRequestParams: ng.IRequestConfig = {
