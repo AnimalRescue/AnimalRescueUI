@@ -45,7 +45,7 @@ export class AdminsApi {
      * @param building unique id of Building to update
      */
     public addBuildingToLocation (locationId: string, building: models.Building, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)));
 
         let queryParameters: any = {};
@@ -107,7 +107,7 @@ export class AdminsApi {
      * @param kennel Room to create
      */
     public addKennelToRoom (locationId: string, buildingId: string, roomId: string, kennel: models.Kennel, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room/{roomId}/kennel'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/room/{roomId}/kennels'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
             .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
@@ -154,7 +154,7 @@ export class AdminsApi {
      * @param location Location to add to the Rescue
      */
     public addLocation (location: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location';
+        const localVarPath = this.basePath + '/locations';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -185,7 +185,7 @@ export class AdminsApi {
      * @param room Room to create
      */
     public addRoomToBuilding (locationId: string, buildingId: string, room: models.Room, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/rooms'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
 
@@ -226,7 +226,7 @@ export class AdminsApi {
      * @param catToCreate full Cat object with new id
      */
     public createCat (catToCreate?: models.Cat, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/cat';
+        const localVarPath = this.basePath + '/cats';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -250,7 +250,7 @@ export class AdminsApi {
      * @param dogToCreate full Contact object with new id
      */
     public createContact (dogToCreate?: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/contact';
+        const localVarPath = this.basePath + '/contacts';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -274,7 +274,7 @@ export class AdminsApi {
      * @param dogToCreate full Dog object with new id
      */
     public createDog (dogToCreate?: models.Dog, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/dog';
+        const localVarPath = this.basePath + '/dogs';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -298,7 +298,7 @@ export class AdminsApi {
      * @param createDonor new Donor object
      */
     public createDonor (createDonor: models.Donor, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/donor';
+        const localVarPath = this.basePath + '/donors';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -327,7 +327,7 @@ export class AdminsApi {
      * @param createFoster new Foster object
      */
     public createFoster (createFoster: models.Foster, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/foster';
+        const localVarPath = this.basePath + '/fosters';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -356,7 +356,7 @@ export class AdminsApi {
      * @param createVolunteer new Volunteer object
      */
     public createVolunteer (createVolunteer: models.Volunteer, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/volunteer';
+        const localVarPath = this.basePath + '/volunteers';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -386,7 +386,7 @@ export class AdminsApi {
      * @param buildingId 
      */
     public deleteBuildingAtLocationById (locationId: string, buildingId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
 
@@ -421,7 +421,7 @@ export class AdminsApi {
      * @param id 
      */
     public deleteCatById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/cat/{id}'
+        const localVarPath = this.basePath + '/cats/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -450,7 +450,7 @@ export class AdminsApi {
      * @param id 
      */
     public deleteContactById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/contact/{id}'
+        const localVarPath = this.basePath + '/contacts/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -479,7 +479,7 @@ export class AdminsApi {
      * @param id 
      */
     public deleteDogById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/dog/{id}'
+        const localVarPath = this.basePath + '/dogs/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -508,7 +508,7 @@ export class AdminsApi {
      * @param id 
      */
     public deleteDonorById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/donor/{id}'
+        const localVarPath = this.basePath + '/donors/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -537,7 +537,7 @@ export class AdminsApi {
      * @param id 
      */
     public deleteFosterById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/foster/{id}'
+        const localVarPath = this.basePath + '/fosters/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -566,7 +566,7 @@ export class AdminsApi {
      * @param id 
      */
     public deleteLocationById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{id}'
+        const localVarPath = this.basePath + '/locations/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -595,7 +595,7 @@ export class AdminsApi {
      * @param id 
      */
     public deleteVolunteerById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/volunteer/{id}'
+        const localVarPath = this.basePath + '/volunteers/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -649,7 +649,7 @@ export class AdminsApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public getBuildingAtLocationById (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Location> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
 
@@ -694,7 +694,7 @@ export class AdminsApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public getBuildingsAtLocation (locationId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Building>> {
-        const localVarPath = this.basePath + '/location/{locationId}/building'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)));
 
         let queryParameters: any = {};
@@ -731,7 +731,7 @@ export class AdminsApi {
      * @param id 
      */
     public getCatById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Cat> {
-        const localVarPath = this.basePath + '/cat/{id}'
+        const localVarPath = this.basePath + '/cats/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -760,7 +760,7 @@ export class AdminsApi {
      * @param id 
      */
     public getContactById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Contact> {
-        const localVarPath = this.basePath + '/contact/{id}'
+        const localVarPath = this.basePath + '/contacts/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -791,7 +791,7 @@ export class AdminsApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public getCountiesByState (state: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<string>> {
-        const localVarPath = this.basePath + '/county';
+        const localVarPath = this.basePath + '/counties';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -831,7 +831,7 @@ export class AdminsApi {
      * @param id 
      */
     public getDogById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Dog> {
-        const localVarPath = this.basePath + '/dog/{id}'
+        const localVarPath = this.basePath + '/dogs/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -860,7 +860,7 @@ export class AdminsApi {
      * @param id 
      */
     public getDonorById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Donor> {
-        const localVarPath = this.basePath + '/donor/{id}'
+        const localVarPath = this.basePath + '/donors/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -893,7 +893,7 @@ export class AdminsApi {
      * @param fromDate Specifies the first intake date to return
      */
     public getDonors (state: string, searchString?: string, limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Donor>> {
-        const localVarPath = this.basePath + '/donor';
+        const localVarPath = this.basePath + '/donors';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -941,7 +941,7 @@ export class AdminsApi {
      * @param id 
      */
     public getFosterById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Foster> {
-        const localVarPath = this.basePath + '/foster/{id}'
+        const localVarPath = this.basePath + '/fosters/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -974,7 +974,7 @@ export class AdminsApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public getKennelsInRoom (locationId: string, buildingId: string, roomId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Kennel>> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room/{roomId}/kennel'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/room/{roomId}/kennels'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
             .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
@@ -1025,7 +1025,7 @@ export class AdminsApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public getLocationById (id: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Location> {
-        const localVarPath = this.basePath + '/location/{id}'
+        const localVarPath = this.basePath + '/locations/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1063,7 +1063,7 @@ export class AdminsApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public getLocations (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Location>> {
-        const localVarPath = this.basePath + '/location';
+        const localVarPath = this.basePath + '/locations';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1097,7 +1097,7 @@ export class AdminsApi {
      * @param offset Specifies the page number of the artists to be displayed
      */
     public getRoomsInBuilding (locationId: string, buildingId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Room>> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}/room'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/rooms'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
 
@@ -1140,7 +1140,7 @@ export class AdminsApi {
      * @param id 
      */
     public getVolunteerById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Volunteer> {
-        const localVarPath = this.basePath + '/volunteer/{id}'
+        const localVarPath = this.basePath + '/volunteers/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1171,7 +1171,7 @@ export class AdminsApi {
      * @param fromDate Specifies the first intake date to return
      */
     public intakeInformation (limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Intake>> {
-        const localVarPath = this.basePath + '/intake';
+        const localVarPath = this.basePath + '/intakes';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1208,7 +1208,7 @@ export class AdminsApi {
      * @param patchLocation partial json object of Location with fields to patch
      */
     public patchBuildingAtLocationById (locationId: string, buildingId: string, patchLocation: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
 
@@ -1250,7 +1250,7 @@ export class AdminsApi {
      * @param patchCat partial json object of Cat with fields to patch
      */
     public patchCatById (id: string, patchCat: models.Cat, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/cat/{id}'
+        const localVarPath = this.basePath + '/cats/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1286,7 +1286,7 @@ export class AdminsApi {
      * @param patchContact partial json object of Contact with fields to patch
      */
     public patchContactById (id: string, patchContact: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/contact/{id}'
+        const localVarPath = this.basePath + '/contacts/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1322,7 +1322,7 @@ export class AdminsApi {
      * @param patchDog partial json object of Dog with fields to patch
      */
     public patchDogById (id: string, patchDog: models.Dog, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/dog/{id}'
+        const localVarPath = this.basePath + '/dogs/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1358,7 +1358,7 @@ export class AdminsApi {
      * @param patchDonor partial json object of Donor with fields to patch
      */
     public patchDonorById (id: string, patchDonor: models.Donor, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/donor/{id}'
+        const localVarPath = this.basePath + '/donors/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1394,7 +1394,7 @@ export class AdminsApi {
      * @param patchFoster partial json object of Foster with fields to patch
      */
     public patchFosterById (id: string, patchFoster: models.Foster, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/foster/{id}'
+        const localVarPath = this.basePath + '/fosters/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1430,7 +1430,7 @@ export class AdminsApi {
      * @param patchLocation partial json object of Location with fields to patch
      */
     public patchLocationById (id: string, patchLocation: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{id}'
+        const localVarPath = this.basePath + '/locations/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1466,7 +1466,7 @@ export class AdminsApi {
      * @param patchVolunteer partial json object of Volunteer with fields to patch
      */
     public patchVolunteerById (id: string, patchVolunteer: models.Volunteer, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/volunteer/{id}'
+        const localVarPath = this.basePath + '/volunteers/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1503,7 +1503,7 @@ export class AdminsApi {
      * @param fromDate Specifies the first intake date to return
      */
     public searchAdoptions (limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Building>> {
-        const localVarPath = this.basePath + '/adoption';
+        const localVarPath = this.basePath + '/adoptions';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1545,7 +1545,7 @@ export class AdminsApi {
      * @param gender Specifies on of the valid Gender
      */
     public searchCats (limit?: number, offset?: number, fromDate?: string, name?: string, adoptionStatus?: string, breed?: string, color?: string, gender?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Cat>> {
-        const localVarPath = this.basePath + '/cat';
+        const localVarPath = this.basePath + '/cats';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1604,7 +1604,7 @@ export class AdminsApi {
      * @param gender Specifies on of the valid Gender
      */
     public searchContact (limit?: number, offset?: number, fromDate?: string, name?: string, gender?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Contact>> {
-        const localVarPath = this.basePath + '/contact';
+        const localVarPath = this.basePath + '/contacts';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1654,7 +1654,7 @@ export class AdminsApi {
      * @param gender Specifies on of the valid Gender
      */
     public searchDog (limit?: number, offset?: number, fromDate?: string, name?: string, adoptionStatus?: string, breed?: string, color?: string, gender?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Dog>> {
-        const localVarPath = this.basePath + '/dog';
+        const localVarPath = this.basePath + '/dogs';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1712,7 +1712,7 @@ export class AdminsApi {
      * @param fromDate Specifies the first intake date to return
      */
     public searchFosters (searchString?: string, limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Foster>> {
-        const localVarPath = this.basePath + '/foster';
+        const localVarPath = this.basePath + '/fosters';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1791,7 +1791,7 @@ export class AdminsApi {
      * @param fromDate Specifies the first intake date to return
      */
     public searchVolunteers (searchString?: string, limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Volunteer>> {
-        const localVarPath = this.basePath + '/volunteer';
+        const localVarPath = this.basePath + '/volunteers';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
@@ -1831,7 +1831,7 @@ export class AdminsApi {
      * @param updateCat unique id of Cat to update
      */
     public updateCatById (id: string, updateCat: models.Cat, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/cat/{id}'
+        const localVarPath = this.basePath + '/cats/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1867,7 +1867,7 @@ export class AdminsApi {
      * @param updateContact unique id of Contact to update
      */
     public updateContactById (id: string, updateContact: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/contact/{id}'
+        const localVarPath = this.basePath + '/contacts/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1903,7 +1903,7 @@ export class AdminsApi {
      * @param updateDog unique id of Dog to update
      */
     public updateDogById (id: string, updateDog: models.Dog, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/dog/{id}'
+        const localVarPath = this.basePath + '/dogs/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1939,7 +1939,7 @@ export class AdminsApi {
      * @param updateDonor unique id of Donor to update
      */
     public updateDonorById (id: string, updateDonor: models.Donor, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/donor/{id}'
+        const localVarPath = this.basePath + '/donors/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -1975,7 +1975,7 @@ export class AdminsApi {
      * @param updateFoster unique id of Foster to update
      */
     public updateFosterById (id: string, updateFoster: models.Foster, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/foster/{id}'
+        const localVarPath = this.basePath + '/fosters/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -2012,7 +2012,7 @@ export class AdminsApi {
      * @param updateLocation unique id of Location to update
      */
     public updateLocationBuildingById (locationId: string, buildingId: string, updateLocation: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{locationId}/building/{buildingId}'
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}'
             .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
             .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)));
 
@@ -2054,7 +2054,7 @@ export class AdminsApi {
      * @param updateLocation unique id of Location to update
      */
     public updateLocationById (id: string, updateLocation: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/location/{id}'
+        const localVarPath = this.basePath + '/locations/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
@@ -2090,7 +2090,7 @@ export class AdminsApi {
      * @param updateFoster unique id of Volunteer to update
      */
     public updateVolunteerById (id: string, updateFoster: models.Volunteer, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/volunteer/{id}'
+        const localVarPath = this.basePath + '/volunteers/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
         let queryParameters: any = {};
