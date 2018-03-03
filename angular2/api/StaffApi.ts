@@ -1066,7 +1066,7 @@ export class StaffApi {
     }
     /**
      * With no parameters, returns all Rooms in a Building
-     * @summary searches all Rooms in a Building at a Location
+     * @summary gets all Rooms in a Building at a Location
      * @param locationId 
      * @param buildingId 
      * @param limit Limits the number of items on a page
