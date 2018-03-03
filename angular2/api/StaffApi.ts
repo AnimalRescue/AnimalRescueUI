@@ -448,6 +448,35 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Deletes an existing Foster by id
+     * @summary retrieves a Foster by id
+     * @param id 
+     */
+    public deleteFosterById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/foster/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteFosterById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Deletes an existing Building at a Location by id
      * @summary deletes a Location by id
      * @param locationId 
@@ -778,6 +807,35 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Gets an existing Foster by id
+     * @summary retrieves a Foster by id
+     * @param id 
+     */
+    public getFosterById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Foster> {
+        const localVarPath = this.basePath + '/foster/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getFosterById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Returns details about a specific Location 
      * @summary returns a specific location for the Rescue
      * @param id 
@@ -1051,6 +1109,42 @@ export class StaffApi {
             method: 'PATCH',
             url: localVarPath,
             data: patchDonor,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Foster by id with only elements that are changing
+     * @summary updates a Foster by id
+     * @param id unique id of Foster to patch
+     * @param patchFoster partial json object of Foster with fields to patch
+     */
+    public patchFosterById (id: string, patchFoster: models.Foster, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/foster/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchFosterById.');
+        }
+
+        // verify required parameter 'patchFoster' is not null or undefined
+        if (patchFoster === null || patchFoster === undefined) {
+            throw new Error('Required parameter patchFoster was null or undefined when calling patchFosterById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchFoster,
                         params: queryParameters,
             headers: headerParams
         };
@@ -1804,6 +1898,42 @@ export class StaffApi {
             method: 'PUT',
             url: localVarPath,
             data: updateDonor,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Foster by id
+     * @summary updates a Foster by id
+     * @param id 
+     * @param updateFoster unique id of Foster to update
+     */
+    public updateFosterById (id: string, updateFoster: models.Foster, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/foster/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateFosterById.');
+        }
+
+        // verify required parameter 'updateFoster' is not null or undefined
+        if (updateFoster === null || updateFoster === undefined) {
+            throw new Error('Required parameter updateFoster was null or undefined when calling updateFosterById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateFoster,
                         params: queryParameters,
             headers: headerParams
         };
