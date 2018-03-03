@@ -128,24 +128,19 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * creates a new, unique Contact
-     * @summary creates new Contact with a unique id
-     * @param createContact new Contact object
+     * adds a Dog with a unique id
+     * @summary creates a new Contact
+     * @param dogToCreate full Contact object with new id
      */
-    public createContact (createContact: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public createContact (dogToCreate?: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/contact';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'createContact' is not null or undefined
-        if (createContact === null || createContact === undefined) {
-            throw new Error('Required parameter createContact was null or undefined when calling createContact.');
-        }
-
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
-            data: createContact,
+            data: dogToCreate,
                         params: queryParameters,
             headers: headerParams
         };
@@ -945,7 +940,7 @@ export class StaffApi {
      * Updates an existing Contact by id with only elements that are changing
      * @summary updates a Contact by id
      * @param id unique id of Contact to patch
-     * @param patchContact partial json object of Donor with fields to patch
+     * @param patchContact partial json object of Contact with fields to patch
      */
     public patchContactById (id: string, patchContact: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/contact/{id}'
@@ -1300,28 +1295,19 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * With no parameters, returns all contacts. Allows filters. 
-     * @summary searches contacts
-     * @param state state to retrieve counties for
-     * @param searchString pass an optional search string for looking up Fosters
+     * With no parameters, returns all contacts associated with the Rescue. Allows filters. 
+     * @summary searches Contact
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      * @param fromDate Specifies the first intake date to return
+     * @param name Specifies a matching pattern for the name
+     * @param gender Specifies on of the valid Gender
      */
-    public searchContacts (state: string, searchString?: string, limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Contact>> {
+    public searchContact (limit?: number, offset?: number, fromDate?: string, name?: string, gender?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Contact>> {
         const localVarPath = this.basePath + '/contact';
 
         let queryParameters: any = {};
         let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'state' is not null or undefined
-        if (state === null || state === undefined) {
-            throw new Error('Required parameter state was null or undefined when calling searchContacts.');
-        }
-
-        if (searchString !== undefined) {
-            queryParameters['searchString'] = searchString;
-        }
-
         if (limit !== undefined) {
             queryParameters['limit'] = limit;
         }
@@ -1334,8 +1320,12 @@ export class StaffApi {
             queryParameters['fromDate'] = fromDate;
         }
 
-        if (state !== undefined) {
-            queryParameters['state'] = state;
+        if (name !== undefined) {
+            queryParameters['name'] = name;
+        }
+
+        if (gender !== undefined) {
+            queryParameters['gender'] = gender;
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -1363,7 +1353,7 @@ export class StaffApi {
      * @param color Specifies one of the valid DogColors
      * @param gender Specifies on of the valid Gender
      */
-    public searchDobs (limit?: number, offset?: number, fromDate?: string, name?: string, adoptionStatus?: string, breed?: string, color?: string, gender?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Dog>> {
+    public searchDog (limit?: number, offset?: number, fromDate?: string, name?: string, adoptionStatus?: string, breed?: string, color?: string, gender?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Dog>> {
         const localVarPath = this.basePath + '/dog';
 
         let queryParameters: any = {};
