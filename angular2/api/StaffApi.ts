@@ -268,38 +268,6 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * deletes a cat
-     * @summary deletes an existing Cat by id
-     * @param id Specifies the unique id of an existing Cat 
-     */
-    public deleteCat (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/cat';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'id' is not null or undefined
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling deleteCat.');
-        }
-
-        if (id !== undefined) {
-            queryParameters['id'] = id;
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'DELETE',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
      * Deletes an existing Cat by id
      * @summary retrieves a Cat by id
      * @param id 
@@ -342,38 +310,6 @@ export class StaffApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteContactById.');
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'DELETE',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
-     * deletes a dog
-     * @summary deletes an existing Dog by id
-     * @param id Specifies the unique id of an existing Dog 
-     */
-    public deleteDog (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/dog';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'id' is not null or undefined
-        if (id === null || id === undefined) {
-            throw new Error('Required parameter id was null or undefined when calling deleteDog.');
-        }
-
-        if (id !== undefined) {
-            queryParameters['id'] = id;
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -970,38 +906,6 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * sends a partial JSON Cat structure for an existing Cat id
-     * @summary updates a Cat
-     * @param updateInfo json object containing specific values to update for an existing Cat id
-     */
-    public patchCat (updateInfo: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/cat';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'updateInfo' is not null or undefined
-        if (updateInfo === null || updateInfo === undefined) {
-            throw new Error('Required parameter updateInfo was null or undefined when calling patchCat.');
-        }
-
-        if (updateInfo !== undefined) {
-            queryParameters['updateInfo'] = updateInfo;
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'PATCH',
-            url: localVarPath,
-                                    params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
      * Updates an existing Cat by id with only elements that are changing
      * @summary updates a Cat by id
      * @param id unique id of Cat to patch
@@ -1064,38 +968,6 @@ export class StaffApi {
             url: localVarPath,
             data: patchContact,
                         params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
-     * sends a partial JSON Dog structure for an existing Dog id
-     * @summary updates a Dog
-     * @param updateInfo json object containing specific values to update for an existing Dog id
-     */
-    public patchDog (updateInfo: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/dog';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        // verify required parameter 'updateInfo' is not null or undefined
-        if (updateInfo === null || updateInfo === undefined) {
-            throw new Error('Required parameter updateInfo was null or undefined when calling patchDog.');
-        }
-
-        if (updateInfo !== undefined) {
-            queryParameters['updateInfo'] = updateInfo;
-        }
-
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'PATCH',
-            url: localVarPath,
-                                    params: queryParameters,
             headers: headerParams
         };
 
@@ -1811,30 +1683,6 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * updates a Cat with a unique id
-     * @summary updates an existing Cat by id
-     * @param catToUpdate full Cat object with id of an existing Cat
-     */
-    public updateCat (catToUpdate?: models.Cat, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/cat';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'PUT',
-            url: localVarPath,
-            data: catToUpdate,
-                        params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
      * Updates an existing Cat by id
      * @summary updates a Cat by id
      * @param id 
@@ -1896,30 +1744,6 @@ export class StaffApi {
             method: 'PUT',
             url: localVarPath,
             data: updateContact,
-                        params: queryParameters,
-            headers: headerParams
-        };
-
-        if (extraHttpRequestParams) {
-            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
-        }
-
-        return this.$http(httpRequestParams);
-    }
-    /**
-     * updates a Dog with a unique id
-     * @summary updates an existing Dog by id
-     * @param dogToUpdate full Dog object with id of an existing Dog
-     */
-    public updateDog (dogToUpdate?: models.Dog, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
-        const localVarPath = this.basePath + '/dog';
-
-        let queryParameters: any = {};
-        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
-        let httpRequestParams: ng.IRequestConfig = {
-            method: 'PUT',
-            url: localVarPath,
-            data: dogToUpdate,
                         params: queryParameters,
             headers: headerParams
         };
