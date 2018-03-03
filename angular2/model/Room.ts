@@ -29,5 +29,6 @@ export interface Room {
     "name"?: string;
     "buildingId": string;
     "kennels"?: Array<models.Kennel>;
+    "notes"?: Array<models.Note>;
 }
 
