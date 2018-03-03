@@ -566,6 +566,49 @@ export class VetsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Deletes an existing Building at a Room by id
+     * @summary deletes a Room by id
+     * @param locationId 
+     * @param buildingId 
+     * @param roomId 
+     */
+    public deleteRoomFromBuildingById (locationId: string, buildingId: string, roomId: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/rooms/{roomId}'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
+            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling deleteRoomFromBuildingById.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling deleteRoomFromBuildingById.');
+        }
+
+        // verify required parameter 'roomId' is not null or undefined
+        if (roomId === null || roomId === undefined) {
+            throw new Error('Required parameter roomId was null or undefined when calling deleteRoomFromBuildingById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Deletes an existing Volunteer by id
      * @summary retrieves a Volunteer by id
      * @param id 
@@ -1065,6 +1108,59 @@ export class VetsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Returns details about a specific Room 
+     * @summary returns a specific location for the Rescue
+     * @param locationId 
+     * @param buildingId 
+     * @param roomId 
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getRoomInBuildingById (locationId: string, buildingId: string, roomId: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Room> {
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/rooms/{roomId}'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
+            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling getRoomInBuildingById.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling getRoomInBuildingById.');
+        }
+
+        // verify required parameter 'roomId' is not null or undefined
+        if (roomId === null || roomId === undefined) {
+            throw new Error('Required parameter roomId was null or undefined when calling getRoomInBuildingById.');
+        }
+
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * With no parameters, returns all Rooms in a Building
      * @summary gets all Rooms in a Building at a Location
      * @param locationId 
@@ -1382,6 +1478,56 @@ export class VetsApi {
         // verify required parameter 'patchLocation' is not null or undefined
         if (patchLocation === null || patchLocation === undefined) {
             throw new Error('Required parameter patchLocation was null or undefined when calling patchLocationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchLocation,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Room by id with only elements that are changing
+     * @summary updates a Room by id
+     * @param locationId 
+     * @param buildingId 
+     * @param roomId 
+     * @param patchLocation partial json object of Room with fields to patch
+     */
+    public patchRoomInBuildingById (locationId: string, buildingId: string, roomId: string, patchLocation: models.Room, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/rooms/{roomId}'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
+            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling patchRoomInBuildingById.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling patchRoomInBuildingById.');
+        }
+
+        // verify required parameter 'roomId' is not null or undefined
+        if (roomId === null || roomId === undefined) {
+            throw new Error('Required parameter roomId was null or undefined when calling patchRoomInBuildingById.');
+        }
+
+        // verify required parameter 'patchLocation' is not null or undefined
+        if (patchLocation === null || patchLocation === undefined) {
+            throw new Error('Required parameter patchLocation was null or undefined when calling patchRoomInBuildingById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -2006,6 +2152,56 @@ export class VetsApi {
         // verify required parameter 'updateLocation' is not null or undefined
         if (updateLocation === null || updateLocation === undefined) {
             throw new Error('Required parameter updateLocation was null or undefined when calling updateLocationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateLocation,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Room by id
+     * @summary updates a Room by id
+     * @param locationId 
+     * @param buildingId 
+     * @param roomId 
+     * @param updateLocation unique id of Room to update
+     */
+    public updateRoomInBuildingById (locationId: string, buildingId: string, roomId: string, updateLocation: models.Room, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/locations/{locationId}/buildings/{buildingId}/rooms/{roomId}'
+            .replace('{' + 'locationId' + '}', encodeURIComponent(String(locationId)))
+            .replace('{' + 'buildingId' + '}', encodeURIComponent(String(buildingId)))
+            .replace('{' + 'roomId' + '}', encodeURIComponent(String(roomId)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'locationId' is not null or undefined
+        if (locationId === null || locationId === undefined) {
+            throw new Error('Required parameter locationId was null or undefined when calling updateRoomInBuildingById.');
+        }
+
+        // verify required parameter 'buildingId' is not null or undefined
+        if (buildingId === null || buildingId === undefined) {
+            throw new Error('Required parameter buildingId was null or undefined when calling updateRoomInBuildingById.');
+        }
+
+        // verify required parameter 'roomId' is not null or undefined
+        if (roomId === null || roomId === undefined) {
+            throw new Error('Required parameter roomId was null or undefined when calling updateRoomInBuildingById.');
+        }
+
+        // verify required parameter 'updateLocation' is not null or undefined
+        if (updateLocation === null || updateLocation === undefined) {
+            throw new Error('Required parameter updateLocation was null or undefined when calling updateRoomInBuildingById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
