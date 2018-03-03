@@ -31,5 +31,6 @@ export interface Kennel {
     "species"?: models.Species;
     "maxOccupancy": number;
     "animals"?: Array<models.BaseAnimalInfo>;
+    "notes"?: Array<models.Note>;
 }
 

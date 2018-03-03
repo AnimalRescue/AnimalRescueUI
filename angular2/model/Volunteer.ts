@@ -30,5 +30,6 @@ export interface Volunteer {
     "startDate"?: string;
     "endDate"?: string;
     "availablitySchedule"?: models.AvailabilitySchedule;
+    "notes"?: Array<models.Note>;
 }
 

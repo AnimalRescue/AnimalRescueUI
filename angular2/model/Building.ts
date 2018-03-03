@@ -28,5 +28,6 @@ export interface Building {
     "id": string;
     "name"?: string;
     "rooms"?: Array<models.Room>;
+    "notes"?: Array<models.Note>;
 }
 

@@ -353,6 +353,35 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Deletes an existing Contact by id
+     * @summary retrieves a Contact by id
+     * @param id 
+     */
+    public deleteContactById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/contact/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteContactById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * deletes a dog
      * @summary deletes an existing Dog by id
      * @param id Specifies the unique id of an existing Dog 
@@ -398,6 +427,35 @@ export class AdminsApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteDogById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Deletes an existing Donor by id
+     * @summary retrieves a Donor by id
+     * @param id 
+     */
+    public deleteDonorById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/donor/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteDonorById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -615,6 +673,35 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Gets an existing Contact by id
+     * @summary retrieves a Contact by id
+     * @param id 
+     */
+    public getContactById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Contact> {
+        const localVarPath = this.basePath + '/contact/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getContactById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Given a state, return an alpha list of counties in that state
      * @summary retrieves counties for the provided state
      * @param state state to retrieve counties for
@@ -670,6 +757,35 @@ export class AdminsApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling getDogById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Gets an existing Donor by id
+     * @summary retrieves a Donor by id
+     * @param id 
+     */
+    public getDonorById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Donor> {
+        const localVarPath = this.basePath + '/donor/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getDonorById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -830,6 +946,42 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Updates an existing Contact by id with only elements that are changing
+     * @summary updates a Contact by id
+     * @param id unique id of Contact to patch
+     * @param patchContact partial json object of Donor with fields to patch
+     */
+    public patchContactById (id: string, patchContact: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/contact/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchContactById.');
+        }
+
+        // verify required parameter 'patchContact' is not null or undefined
+        if (patchContact === null || patchContact === undefined) {
+            throw new Error('Required parameter patchContact was null or undefined when calling patchContactById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchContact,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * sends a partial JSON Dog structure for an existing Dog id
      * @summary updates a Dog
      * @param updateInfo json object containing specific values to update for an existing Dog id
@@ -887,6 +1039,42 @@ export class AdminsApi {
             method: 'PATCH',
             url: localVarPath,
             data: patchDog,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Donor by id with only elements that are changing
+     * @summary updates a Donor by id
+     * @param id unique id of Donor to patch
+     * @param patchDonor partial json object of Donor with fields to patch
+     */
+    public patchDonorById (id: string, patchDonor: models.Donor, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/donor/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchDonorById.');
+        }
+
+        // verify required parameter 'patchDonor' is not null or undefined
+        if (patchDonor === null || patchDonor === undefined) {
+            throw new Error('Required parameter patchDonor was null or undefined when calling patchDonorById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchDonor,
                         params: queryParameters,
             headers: headerParams
         };
@@ -1519,6 +1707,42 @@ export class AdminsApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Updates an existing Contact by id
+     * @summary updates a Contact by id
+     * @param id 
+     * @param updateContact unique id of Contact to update
+     */
+    public updateContactById (id: string, updateContact: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/contact/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateContactById.');
+        }
+
+        // verify required parameter 'updateContact' is not null or undefined
+        if (updateContact === null || updateContact === undefined) {
+            throw new Error('Required parameter updateContact was null or undefined when calling updateContactById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateContact,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * updates a Dog with a unique id
      * @summary updates an existing Dog by id
      * @param dogToUpdate full Dog object with id of an existing Dog
@@ -1546,9 +1770,9 @@ export class AdminsApi {
      * Updates an existing Dog by id
      * @summary updates a Dog by id
      * @param id 
-     * @param updateCat unique id of Dog to update
+     * @param updateDog unique id of Dog to update
      */
-    public updateDogById (id: string, updateCat: models.Dog, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public updateDogById (id: string, updateDog: models.Dog, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/dog/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
@@ -1559,15 +1783,51 @@ export class AdminsApi {
             throw new Error('Required parameter id was null or undefined when calling updateDogById.');
         }
 
-        // verify required parameter 'updateCat' is not null or undefined
-        if (updateCat === null || updateCat === undefined) {
-            throw new Error('Required parameter updateCat was null or undefined when calling updateDogById.');
+        // verify required parameter 'updateDog' is not null or undefined
+        if (updateDog === null || updateDog === undefined) {
+            throw new Error('Required parameter updateDog was null or undefined when calling updateDogById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'PUT',
             url: localVarPath,
-            data: updateCat,
+            data: updateDog,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Donor by id
+     * @summary updates a Donor by id
+     * @param id 
+     * @param updateDonor unique id of Donor to update
+     */
+    public updateDonorById (id: string, updateDonor: models.Donor, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/donor/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateDonorById.');
+        }
+
+        // verify required parameter 'updateDonor' is not null or undefined
+        if (updateDonor === null || updateDonor === undefined) {
+            throw new Error('Required parameter updateDonor was null or undefined when calling updateDonorById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateDonor,
                         params: queryParameters,
             headers: headerParams
         };

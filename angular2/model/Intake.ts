@@ -30,5 +30,6 @@ export interface Intake {
     "staffId": string;
     "parNumber": number;
     "surrenderingPartyId"?: string;
+    "notes"?: Array<models.Note>;
 }
 

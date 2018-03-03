@@ -24,12 +24,8 @@
 
 import * as models from './models';
 
-export interface Foster {
+export interface Note {
     "id": string;
-    "startDate"?: string;
-    "endDate"?: string;
-    "contactId": models.Contact;
-    "locationId": models.Location;
-    "notes"?: Array<models.Note>;
+    "name"?: string;
 }
 

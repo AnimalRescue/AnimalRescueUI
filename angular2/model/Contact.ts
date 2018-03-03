@@ -34,5 +34,6 @@ export interface Contact {
     "emails"?: Array<models.EmailAddress>;
     "dateOfBirth"?: string;
     "driversLicense"?: string;
+    "notes"?: Array<models.Note>;
 }
 

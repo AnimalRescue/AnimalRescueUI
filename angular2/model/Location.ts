@@ -30,5 +30,6 @@ export interface Location {
     "address": models.Address;
     "buildings"?: Array<models.Building>;
     "enclosures"?: Array<models.Enclosure>;
+    "notes"?: Array<models.Note>;
 }
 

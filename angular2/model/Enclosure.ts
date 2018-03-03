@@ -28,6 +28,7 @@ export interface Enclosure {
     "size"?: number;
     "unitOfAreaMeasure"?: Enclosure.UnitOfAreaMeasureEnum;
     "heightInFeet"?: number;
+    "notes"?: Array<models.Note>;
 }
 
 export namespace Enclosure {

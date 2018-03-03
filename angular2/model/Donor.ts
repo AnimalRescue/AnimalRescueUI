@@ -30,5 +30,6 @@ export interface Donor {
     "endDate"?: string;
     "contactId"?: models.Contact;
     "donations"?: Array<models.Donation>;
+    "notes"?: Array<models.Note>;
 }
 

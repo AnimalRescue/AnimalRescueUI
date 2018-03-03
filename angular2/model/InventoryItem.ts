@@ -28,5 +28,6 @@ export interface InventoryItem {
     "id": string;
     "name": string;
     "releaseDate": string;
+    "notes"?: Array<models.Note>;
 }
 

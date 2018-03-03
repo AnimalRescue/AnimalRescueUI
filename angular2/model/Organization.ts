@@ -24,12 +24,11 @@
 
 import * as models from './models';
 
-export interface Foster {
+export interface Organization {
     "id": string;
-    "startDate"?: string;
-    "endDate"?: string;
-    "contactId": models.Contact;
-    "locationId": models.Location;
+    "name": string;
+    "address"?: models.Address;
+    "phones"?: Array<models.PhoneNumber>;
     "notes"?: Array<models.Note>;
 }
 

@@ -30,6 +30,8 @@ export * from './InventoryItem';
 export * from './Kennel';
 export * from './Location';
 export * from './MonthSelect';
+export * from './Note';
+export * from './Organization';
 export * from './PhoneNumber';
 export * from './Room';
 export * from './Species';

@@ -32,5 +32,6 @@ export interface Address {
     "stateOrProvence": string;
     "county"?: models.CountyMI;
     "country"?: string;
+    "notes"?: Array<models.Note>;
 }
 
