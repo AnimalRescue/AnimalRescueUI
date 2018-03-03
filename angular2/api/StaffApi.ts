@@ -203,6 +203,35 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Deletes an existing Building by id
+     * @summary retrieves a Location by id
+     * @param id 
+     */
+    public deleteBuildingById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/location/building'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteBuildingById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * deletes a cat
      * @summary deletes an existing Cat by id
      * @param id Specifies the unique id of an existing Cat 
@@ -542,6 +571,42 @@ export class StaffApi {
             method: 'GET',
             url: localVarPath,
                                     params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Building by id with only elements that are changing
+     * @summary updates a Building by id
+     * @param id unique id of Building to patch
+     * @param patchBuilding partial json object of Building with fields to patch
+     */
+    public patchBuildingById (id: string, patchBuilding: models.Building, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/location/building'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchBuildingById.');
+        }
+
+        // verify required parameter 'patchBuilding' is not null or undefined
+        if (patchBuilding === null || patchBuilding === undefined) {
+            throw new Error('Required parameter patchBuilding was null or undefined when calling patchBuildingById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchBuilding,
+                        params: queryParameters,
             headers: headerParams
         };
 
@@ -1238,6 +1303,42 @@ export class StaffApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Updates an existing Building by id
+     * @summary updates a Building by id
+     * @param id 
+     * @param updateBuilding unique id of Building to update
+     */
+    public updateBuildingById (id: string, updateBuilding: models.Building, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/location/building'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateBuildingById.');
+        }
+
+        // verify required parameter 'updateBuilding' is not null or undefined
+        if (updateBuilding === null || updateBuilding === undefined) {
+            throw new Error('Required parameter updateBuilding was null or undefined when calling updateBuildingById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateBuilding,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * updates a Cat with a unique id
      * @summary updates an existing Cat by id
      * @param catToUpdate full Cat object with id of an existing Cat
@@ -1361,9 +1462,9 @@ export class StaffApi {
      * Updates an existing Location by id
      * @summary updates a Location by id
      * @param id 
-     * @param updateCat unique id of Location to update
+     * @param updateLocation unique id of Location to update
      */
-    public updateLocationById (id: string, updateCat: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public updateLocationById (id: string, updateLocation: models.Location, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/location/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
 
@@ -1374,15 +1475,15 @@ export class StaffApi {
             throw new Error('Required parameter id was null or undefined when calling updateLocationById.');
         }
 
-        // verify required parameter 'updateCat' is not null or undefined
-        if (updateCat === null || updateCat === undefined) {
-            throw new Error('Required parameter updateCat was null or undefined when calling updateLocationById.');
+        // verify required parameter 'updateLocation' is not null or undefined
+        if (updateLocation === null || updateLocation === undefined) {
+            throw new Error('Required parameter updateLocation was null or undefined when calling updateLocationById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
             method: 'PUT',
             url: localVarPath,
-            data: updateCat,
+            data: updateLocation,
                         params: queryParameters,
             headers: headerParams
         };
