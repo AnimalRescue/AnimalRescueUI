@@ -28,6 +28,5 @@ export interface Cat {
     "baseInfo": models.BaseAnimalInfo;
     "breed": models.CatBreeds;
     "color": models.CatColors;
-    "notes"?: Array<models.Note>;
 }
 

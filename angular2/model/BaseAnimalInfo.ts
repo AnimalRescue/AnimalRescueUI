@@ -34,5 +34,6 @@ export interface BaseAnimalInfo {
     "gender": models.Gender;
     "species"?: models.Species;
     "bio"?: string;
+    "notes"?: Array<models.Note>;
 }
 

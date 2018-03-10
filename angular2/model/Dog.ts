@@ -28,6 +28,5 @@ export interface Dog {
     "baseInfo": models.BaseAnimalInfo;
     "breed": models.DogBreeds;
     "color": models.DogColors;
-    "notes"?: Array<models.Note>;
 }
 
