@@ -33,5 +33,6 @@ export interface BaseAnimalInfo {
     "status": models.AdoptionStatus;
     "gender": models.Gender;
     "species"?: models.Species;
+    "bio"?: string;
 }
 
