@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface BaseAnimalInfo {
-    "id": string;
+    "id": models.Id;
     "name"?: string;
     "ageIsEstimated": boolean;
     "age"?: string;

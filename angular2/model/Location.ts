@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Location {
-    "id": string;
+    "id": models.Id;
     "name"?: string;
     "address": models.Address;
     "buildings"?: Array<models.Building>;

@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Intake {
-    "id": string;
+    "id": models.Id;
     "timestamp": string;
     "staffId": string;
     "parNumber": number;

@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Building {
-    "id": string;
+    "id": models.Id;
     "name"?: string;
     "rooms"?: Array<models.Room>;
     "kennels"?: Array<models.Kennel>;

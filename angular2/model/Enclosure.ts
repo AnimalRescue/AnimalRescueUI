@@ -25,6 +25,7 @@
 import * as models from './models';
 
 export interface Enclosure {
+    "id": models.Id;
     "size"?: number;
     "unitOfAreaMeasure"?: Enclosure.UnitOfAreaMeasureEnum;
     "heightInFeet"?: number;

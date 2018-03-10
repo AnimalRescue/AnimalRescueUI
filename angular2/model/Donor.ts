@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Donor {
-    "id"?: string;
+    "id"?: models.Id;
     "startDate"?: string;
     "endDate"?: string;
     "contactId"?: models.Contact;

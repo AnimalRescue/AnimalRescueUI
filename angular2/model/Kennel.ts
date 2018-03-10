@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Kennel {
-    "id": string;
+    "id": models.Id;
     "name"?: string;
     "roomId": string;
     "species"?: models.Species;

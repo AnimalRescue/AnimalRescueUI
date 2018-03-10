@@ -2305,12 +2305,12 @@ export class PublicApi {
     }
     /**
      * With no parameters, returns all Buildings at the Rescue 
-     * @summary searches all buildings at the Rescue
+     * @summary searches all Adoptions at the Rescue
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      * @param fromDate Specifies the first intake date to return
      */
-    public searchAdoptions (limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Building>> {
+    public searchAdoptions (limit?: number, offset?: number, fromDate?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Adoption>> {
         const localVarPath = this.basePath + '/adoptions';
 
         let queryParameters: any = {};

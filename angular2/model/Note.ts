@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Note {
-    "id": string;
+    "id": models.Id;
     "name"?: string;
 }
 

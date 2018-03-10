@@ -24,11 +24,11 @@
 
 import * as models from './models';
 
-export interface Organization {
-    "id": models.Id;
-    "name": string;
-    "address"?: models.Address;
-    "phones"?: Array<models.PhoneNumber>;
-    "notes"?: Array<models.Note>;
+export interface Adoption {
+    "id"?: models.Id;
+    "date"?: string;
+    "adoptees"?: Array<models.BaseAnimalInfo>;
+    "adoptor"?: models.Contact;
+    "notes"?: Array<models.DefinitionsNote>;
 }
 

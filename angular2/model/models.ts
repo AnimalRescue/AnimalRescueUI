@@ -1,4 +1,5 @@
 export * from './Address';
+export * from './Adoption';
 export * from './AdoptionStatus';
 export * from './AvailabilityBlock';
 export * from './AvailabilitySchedule';
@@ -25,6 +26,7 @@ export * from './Enclosure';
 export * from './Foster';
 export * from './Gender';
 export * from './HalfHourMilitaryTimeSelect';
+export * from './Id';
 export * from './Intake';
 export * from './InventoryItem';
 export * from './Kennel';

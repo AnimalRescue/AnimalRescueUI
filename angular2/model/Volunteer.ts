@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Volunteer {
-    "id": string;
+    "id": models.Id;
     "contactId": models.Contact;
     "startDate"?: string;
     "endDate"?: string;

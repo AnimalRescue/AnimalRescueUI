@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Address {
-    "id": string;
+    "id": models.Id;
     "addressLine1"?: string;
     "addressLine2"?: string;
     "city": string;

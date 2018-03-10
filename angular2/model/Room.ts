@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Room {
-    "id": string;
+    "id": models.Id;
     "name"?: string;
     "buildingId": string;
     "kennels"?: Array<models.Kennel>;

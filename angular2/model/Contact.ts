@@ -25,7 +25,7 @@
 import * as models from './models';
 
 export interface Contact {
-    "id": string;
+    "id": models.Id;
     "firstName"?: string;
     "middleName"?: string;
     "lastName"?: string;
