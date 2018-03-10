@@ -75,6 +75,35 @@ export class PublicApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Adds a new Enclosure to the Rescue
+     * @summary adds a Enclosure to the rescue
+     * @param enclosure Enclosure to add to the Rescue
+     */
+    public addEnclosure (enclosure: models.Enclosure, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/enclosures';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'enclosure' is not null or undefined
+        if (enclosure === null || enclosure === undefined) {
+            throw new Error('Required parameter enclosure was null or undefined when calling addEnclosure.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: enclosure,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Adds an item to the system
      * @summary adds an inventory item
      * @param inventoryItem Inventory item to add
@@ -545,6 +574,35 @@ export class PublicApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteDonorById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Deletes an existing Enclosure by id
+     * @summary deletes a Enclosure by id
+     * @param id 
+     */
+    public deleteEnclosureById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/enclosures/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteEnclosureById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -1147,6 +1205,77 @@ export class PublicApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Returns details about a specific Enclosure 
+     * @summary returns a specific Enclosure for the Rescue
+     * @param id 
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getEnclosureById (id: string, limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Enclosure> {
+        const localVarPath = this.basePath + '/enclosures/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getEnclosureById.');
+        }
+
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * With no parameters, returns all Enclosures for the Rescue 
+     * @summary searches all Enclosures for the Rescue
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     */
+    public getEnclosures (limit?: number, offset?: number, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Enclosure>> {
+        const localVarPath = this.basePath + '/enclosures';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Gets an existing Foster by id
      * @summary retrieves a Foster by id
      * @param id 
@@ -1712,6 +1841,42 @@ export class PublicApi {
             method: 'PATCH',
             url: localVarPath,
             data: patchDonor,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Enclosure by id with only elements that are changing
+     * @summary updates a Enclosure by id
+     * @param id unique id of Enclosure to patch
+     * @param patchEnclosure partial json object of Enclosure with fields to patch
+     */
+    public patchEnclosureById (id: string, patchEnclosure: models.Enclosure, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/enclosures/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchEnclosureById.');
+        }
+
+        // verify required parameter 'patchEnclosure' is not null or undefined
+        if (patchEnclosure === null || patchEnclosure === undefined) {
+            throw new Error('Required parameter patchEnclosure was null or undefined when calling patchEnclosureById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchEnclosure,
                         params: queryParameters,
             headers: headerParams
         };
@@ -2479,6 +2644,42 @@ export class PublicApi {
             method: 'PUT',
             url: localVarPath,
             data: updateDonor,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Enclosure by id
+     * @summary updates a Enclosure by id
+     * @param id 
+     * @param updateEnclosure unique id of Enclosure to update
+     */
+    public updateEnclosureById (id: string, updateEnclosure: models.Enclosure, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/enclosures/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateEnclosureById.');
+        }
+
+        // verify required parameter 'updateEnclosure' is not null or undefined
+        if (updateEnclosure === null || updateEnclosure === undefined) {
+            throw new Error('Required parameter updateEnclosure was null or undefined when calling updateEnclosureById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateEnclosure,
                         params: queryParameters,
             headers: headerParams
         };
