@@ -2304,7 +2304,7 @@ export class PublicApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * With no parameters, returns all Buildings at the Rescue 
+     * With no parameters, returns all Adoptions at the Rescue 
      * @summary searches all Adoptions at the Rescue
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
