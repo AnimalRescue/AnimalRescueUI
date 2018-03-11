@@ -332,11 +332,11 @@ export class PublicApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * adds a Dog with a unique id
+     * adds a Contact with a unique id
      * @summary creates a new Contact
-     * @param dogToCreate full Contact object with new id
+     * @param contactToCreate full Contact object with new id
      */
-    public createContact (dogToCreate?: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+    public createContact (contactToCreate?: models.Contact, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/contacts';
 
         let queryParameters: any = {};
@@ -344,7 +344,7 @@ export class PublicApi {
         let httpRequestParams: ng.IRequestConfig = {
             method: 'POST',
             url: localVarPath,
-            data: dogToCreate,
+            data: contactToCreate,
                         params: queryParameters,
             headers: headerParams
         };
@@ -427,6 +427,30 @@ export class PublicApi {
             method: 'POST',
             url: localVarPath,
             data: createFoster,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * adds a Organization with a unique id
+     * @summary creates a new Organization
+     * @param organizationToCreate full Organization object with new id
+     */
+    public createOrganization (organizationToCreate?: models.Organization, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/organizations';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'POST',
+            url: localVarPath,
+            data: organizationToCreate,
                         params: queryParameters,
             headers: headerParams
         };
@@ -798,6 +822,35 @@ export class PublicApi {
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling deleteLocationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'DELETE',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Deletes an existing Organization by id
+     * @summary retrieves a Organization by id
+     * @param id 
+     */
+    public deleteOrganizationById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/organizations/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling deleteOrganizationById.');
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -1629,6 +1682,35 @@ export class PublicApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Gets an existing Organization by id
+     * @summary retrieves a Organization by id
+     * @param id 
+     */
+    public getOrganizationById (id: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<models.Organization> {
+        const localVarPath = this.basePath + '/organizations/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling getOrganizationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Returns details about a specific Room 
      * @summary returns a specific location for the Rescue
      * @param locationId 
@@ -2218,6 +2300,42 @@ export class PublicApi {
         return this.$http(httpRequestParams);
     }
     /**
+     * Updates an existing Organization by id with only elements that are changing
+     * @summary updates a Organization by id
+     * @param id unique id of Organization to patch
+     * @param patchOrganization partial json object of Organization with fields to patch
+     */
+    public patchOrganizationById (id: string, patchOrganization: models.Organization, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/organizations/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling patchOrganizationById.');
+        }
+
+        // verify required parameter 'patchOrganization' is not null or undefined
+        if (patchOrganization === null || patchOrganization === undefined) {
+            throw new Error('Required parameter patchOrganization was null or undefined when calling patchOrganizationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PATCH',
+            url: localVarPath,
+            data: patchOrganization,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
      * Updates an existing Room by id with only elements that are changing
      * @summary updates a Room by id
      * @param locationId 
@@ -2575,6 +2693,53 @@ export class PublicApi {
 
         if (searchString !== undefined) {
             queryParameters['searchString'] = searchString;
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'GET',
+            url: localVarPath,
+                                    params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * With no parameters, returns all Organizations associated with the Rescue. Allows filters. 
+     * @summary searches Organization
+     * @param limit Limits the number of items on a page
+     * @param offset Specifies the page number of the artists to be displayed
+     * @param fromDate Specifies the first intake date to return
+     * @param name Specifies a matching pattern for the name
+     * @param gender Specifies on of the valid Gender
+     */
+    public searchOrganization (limit?: number, offset?: number, fromDate?: string, name?: string, gender?: string, extraHttpRequestParams?: any ) : ng.IHttpPromise<Array<models.Organization>> {
+        const localVarPath = this.basePath + '/organizations';
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        if (limit !== undefined) {
+            queryParameters['limit'] = limit;
+        }
+
+        if (offset !== undefined) {
+            queryParameters['offset'] = offset;
+        }
+
+        if (fromDate !== undefined) {
+            queryParameters['fromDate'] = fromDate;
+        }
+
+        if (name !== undefined) {
+            queryParameters['name'] = name;
+        }
+
+        if (gender !== undefined) {
+            queryParameters['gender'] = gender;
         }
 
         let httpRequestParams: ng.IRequestConfig = {
@@ -3046,6 +3211,42 @@ export class PublicApi {
             method: 'PUT',
             url: localVarPath,
             data: updateLocation,
+                        params: queryParameters,
+            headers: headerParams
+        };
+
+        if (extraHttpRequestParams) {
+            httpRequestParams = (<any>Object).assign(httpRequestParams, extraHttpRequestParams);
+        }
+
+        return this.$http(httpRequestParams);
+    }
+    /**
+     * Updates an existing Organization by id
+     * @summary updates a Organization by id
+     * @param id 
+     * @param updateOrganization unique id of Organization to update
+     */
+    public updateOrganizationById (id: string, updateOrganization: models.Organization, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
+        const localVarPath = this.basePath + '/organizations/{id}'
+            .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
+
+        let queryParameters: any = {};
+        let headerParams: any = (<any>Object).assign({}, this.defaultHeaders);
+        // verify required parameter 'id' is not null or undefined
+        if (id === null || id === undefined) {
+            throw new Error('Required parameter id was null or undefined when calling updateOrganizationById.');
+        }
+
+        // verify required parameter 'updateOrganization' is not null or undefined
+        if (updateOrganization === null || updateOrganization === undefined) {
+            throw new Error('Required parameter updateOrganization was null or undefined when calling updateOrganizationById.');
+        }
+
+        let httpRequestParams: ng.IRequestConfig = {
+            method: 'PUT',
+            url: localVarPath,
+            data: updateOrganization,
                         params: queryParameters,
             headers: headerParams
         };
