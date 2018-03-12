@@ -27,5 +27,6 @@ import * as models from './models';
 export interface MedicalHistory {
     "id": models.Id;
     "events"?: Array<models.MedicalEvent>;
+    "notes"?: Array<models.Note>;
 }
 

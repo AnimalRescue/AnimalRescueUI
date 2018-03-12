@@ -26,6 +26,8 @@ import * as models from './models';
 
 export interface Note {
     "id": models.Id;
-    "name"?: string;
+    "addedByStaff"?: models.Id;
+    "timeStamp"?: Date;
+    "content"?: string;
 }
 

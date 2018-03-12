@@ -27,6 +27,7 @@ import * as models from './models';
 export interface EmailAddress {
     "email": string;
     "emailType": EmailAddress.EmailTypeEnum;
+    "notes"?: Array<models.Note>;
 }
 
 export namespace EmailAddress {

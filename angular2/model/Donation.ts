@@ -27,6 +27,7 @@ import * as models from './models';
 export interface Donation {
     "type"?: Donation.TypeEnum;
     "date"?: string;
+    "notes"?: Array<models.Note>;
 }
 
 export namespace Donation {
