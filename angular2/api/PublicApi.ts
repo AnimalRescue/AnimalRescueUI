@@ -1922,7 +1922,7 @@ export class PublicApi {
      * Updates an existing Building by id with only elements that are changing
      * @summary updates a Building by id
      * @param id unique id of Building to patch
-     * @param patchBuilding partial json object of Enclosure with fields to patch
+     * @param patchBuilding partial json object of Building with fields to patch
      */
     public patchBuildingById (id: string, patchBuilding: models.Building, extraHttpRequestParams?: any ) : ng.IHttpPromise<{}> {
         const localVarPath = this.basePath + '/buildings/{id}'
@@ -2841,7 +2841,7 @@ export class PublicApi {
         return this.$http(httpRequestParams);
     }
     /**
-     * Updates an existing Enclosure by id
+     * Updates an existing Building by id
      * @summary updates a Building by id
      * @param id 
      * @param updateBuilding unique id of Building to update
