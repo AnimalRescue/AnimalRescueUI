@@ -11,5 +11,6 @@ export * from './dogBreeds';
 export * from './dogColors';
 export * from './emailType';
 export * from './gender';
+export * from './halfHourMilitaryTimeSelect';
 export * from './inventoryItem';
 export * from './manufacturer';
