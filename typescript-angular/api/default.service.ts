@@ -102,9 +102,11 @@ export class DefaultService {
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the artists to be displayed
      * @param fromDate Specifies the first intake date to return
+     * @param status Adoption Status of Pending, Available, Medical, Hold
+     * @param location Specifies a search string found int Location, Building, Room, Kennel, or Enclosure name
      * @param name Specifies a matching pattern for the name
      */
-    public getFilteredIntakes(limit?: number, offset?: number, fromDate?: string, name?: string): Observable<Array<IntakeList>> {
+    public getFilteredIntakes(limit?: number, offset?: number, fromDate?: string, status?: string, location?: string, name?: string): Observable<Array<IntakeList>> {
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
         if (limit !== undefined) {
@@ -115,6 +117,12 @@ export class DefaultService {
         }
         if (fromDate !== undefined) {
             queryParameters = queryParameters.set('fromDate', <any>fromDate);
+        }
+        if (status !== undefined) {
+            queryParameters = queryParameters.set('Status', <any>status);
+        }
+        if (location !== undefined) {
+            queryParameters = queryParameters.set('location', <any>location);
         }
         if (name !== undefined) {
             queryParameters = queryParameters.set('name', <any>name);
