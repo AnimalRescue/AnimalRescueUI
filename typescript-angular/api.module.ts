@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Configuration } from './configuration';
 
-import { AdminsService } from './api/admins.service';
 import { DefaultService } from './api/default.service';
-import { DevelopersService } from './api/developers.service';
 import { PublicService } from './api/public.service';
 
 @NgModule({
@@ -13,9 +11,7 @@ import { PublicService } from './api/public.service';
   declarations: [],
   exports:      [],
   providers: [
-    AdminsService,
     DefaultService,
-    DevelopersService,
     PublicService ]
 })
 export class ApiModule {
