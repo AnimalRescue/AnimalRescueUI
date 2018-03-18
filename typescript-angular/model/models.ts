@@ -9,5 +9,7 @@ export * from './dayOfMonthSelect';
 export * from './dayOfWeekSelect';
 export * from './dogBreeds';
 export * from './dogColors';
+export * from './emailType';
+export * from './gender';
 export * from './inventoryItem';
 export * from './manufacturer';
