@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Configuration } from './configuration';
 
 import { AdminsService } from './api/admins.service';
+import { DefaultService } from './api/default.service';
 import { DevelopersService } from './api/developers.service';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { DevelopersService } from './api/developers.service';
   exports:      [],
   providers: [
     AdminsService,
+    DefaultService,
     DevelopersService ]
 })
 export class ApiModule {
