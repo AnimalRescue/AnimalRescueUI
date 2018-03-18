@@ -4,4 +4,6 @@ export * from './default.service';
 import { DefaultService } from './default.service';
 export * from './developers.service';
 import { DevelopersService } from './developers.service';
-export const APIS = [AdminsService, DefaultService, DevelopersService];
+export * from './public.service';
+import { PublicService } from './public.service';
+export const APIS = [AdminsService, DefaultService, DevelopersService, PublicService];

@@ -6,6 +6,7 @@ import { Configuration } from './configuration';
 import { AdminsService } from './api/admins.service';
 import { DefaultService } from './api/default.service';
 import { DevelopersService } from './api/developers.service';
+import { PublicService } from './api/public.service';
 
 @NgModule({
   imports:      [ CommonModule, HttpClientModule ],
@@ -14,7 +15,8 @@ import { DevelopersService } from './api/developers.service';
   providers: [
     AdminsService,
     DefaultService,
-    DevelopersService ]
+    DevelopersService,
+    PublicService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders {
