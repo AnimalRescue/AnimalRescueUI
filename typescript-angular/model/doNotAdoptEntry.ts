@@ -10,17 +10,17 @@
  * Do not edit the class manually.
  */
 
-import { AnimalId } from './animalId';
-import { AnimalType } from './animalType';
-import { KennelId } from './kennelId';
+import { ContactId } from './contactId';
+import { DoNotAdoptId } from './doNotAdoptId';
 import { NoteId } from './noteId';
 
 
-export interface Kennel {
-    id: KennelId;
-    name?: string;
-    species?: AnimalType;
-    maxOccupancy: number;
-    animals?: Array<AnimalId>;
+/**
+ * Entity representing an individual who is not eligible to adopt from the Rescue
+ */
+export interface DoNotAdoptEntry {
+    id?: DoNotAdoptId;
+    timestamp?: string;
+    contact?: ContactId;
     notes?: Array<NoteId>;
 }

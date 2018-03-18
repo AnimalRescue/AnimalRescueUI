@@ -11,16 +11,14 @@
  */
 
 import { AnimalId } from './animalId';
-import { AnimalType } from './animalType';
-import { KennelId } from './kennelId';
+import { LitterId } from './litterId';
 import { NoteId } from './noteId';
 
 
-export interface Kennel {
-    id: KennelId;
-    name?: string;
-    species?: AnimalType;
-    maxOccupancy: number;
-    animals?: Array<AnimalId>;
+export interface Litter {
+    id: LitterId;
+    isMotherIncluded: boolean;
+    mother?: AnimalId;
+    littermates: Array<AnimalId>;
     notes?: Array<NoteId>;
 }

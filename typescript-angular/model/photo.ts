@@ -10,17 +10,13 @@
  * Do not edit the class manually.
  */
 
-import { AnimalId } from './animalId';
-import { AnimalType } from './animalType';
-import { KennelId } from './kennelId';
 import { NoteId } from './noteId';
+import { PhotoId } from './photoId';
 
 
-export interface Kennel {
-    id: KennelId;
-    name?: string;
-    species?: AnimalType;
-    maxOccupancy: number;
-    animals?: Array<AnimalId>;
+export interface Photo {
+    id?: PhotoId;
+    title?: string;
+    image?: string;
     notes?: Array<NoteId>;
 }
