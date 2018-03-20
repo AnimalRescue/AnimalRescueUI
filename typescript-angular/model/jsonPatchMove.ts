@@ -21,8 +21,8 @@ export interface JsonPatchMove {
     from: JsonPointer;
 }
 export namespace JsonPatchMove {
-    export type OpEnum = 'copy';
+    export type OpEnum = 'move';
     export const OpEnum = {
-        Copy: 'copy' as OpEnum
+        Move: 'move' as OpEnum
     }
 }
