@@ -10,8 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { JsonPatchInner } from './jsonPatchInner';
 
 
-export interface JsonPatch extends Array<JsonPatchInner> {
+export interface JsonPatch extends Array<ERRORUNKNOWN> {
 }
