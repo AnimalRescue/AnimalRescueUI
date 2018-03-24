@@ -12,7 +12,10 @@
 
 import { AdoptionStatus } from './adoptionStatus';
 import { AnimalId } from './animalId';
+import { AnimalInfo } from './animalInfo';
 import { AnimalType } from './animalType';
+import { DogBreeds } from './dogBreeds';
+import { DogColors } from './dogColors';
 import { Gender } from './gender';
 import { KennelId } from './kennelId';
 import { LitterId } from './litterId';
@@ -22,21 +25,7 @@ import { ParNumber } from './parNumber';
 import { PhotoId } from './photoId';
 
 
-export interface AnimalInfo {
-    id: AnimalId;
-    parNumber: ParNumber;
-    name?: string;
-    status: AdoptionStatus;
-    animalType: AnimalType;
-    gender: Gender;
-    ageIsEstimated: boolean;
-    age?: string;
-    dateOfBirth?: string;
-    isPartOfLitter: boolean;
-    litterId?: LitterId;
-    medicalHistoryId?: MedicalHistoryId;
-    kennelId?: KennelId;
-    bio?: string;
-    photos?: PhotoId;
-    notes?: Array<NoteId>;
+export interface Dog extends AnimalInfo {
+    breed?: DogBreeds;
+    color?: DogColors;
 }

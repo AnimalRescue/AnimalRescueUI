@@ -15,12 +15,10 @@
 /**
  * List of allowable Intake types describing how an animal came to the Rescue
  */
-export type IntakeType = 'Owner Surrender' | 'Failed Adoption' | 'Stray Surrender' | 'Abandonded at Rescue' | 'Shelter Transfer';
+export type IntakeType = 'Owner Surrender' | 'Stray' | 'Transfer';
 
 export const IntakeType = {
     OwnerSurrender: 'Owner Surrender' as IntakeType,
-    FailedAdoption: 'Failed Adoption' as IntakeType,
-    StraySurrender: 'Stray Surrender' as IntakeType,
-    AbandondedAtRescue: 'Abandonded at Rescue' as IntakeType,
-    ShelterTransfer: 'Shelter Transfer' as IntakeType
+    Stray: 'Stray' as IntakeType,
+    Transfer: 'Transfer' as IntakeType
 }
