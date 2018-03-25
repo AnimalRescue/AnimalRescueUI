@@ -11,10 +11,8 @@
  */
 
 import { AnimalInfo } from './animalInfo';
-import { CatInfo } from './catInfo';
 
 
 export interface Cat {
     animal: AnimalInfo;
-    cat: CatInfo;
 }
