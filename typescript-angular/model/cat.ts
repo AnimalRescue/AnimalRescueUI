@@ -15,6 +15,6 @@ import { CatInfo } from './catInfo';
 
 
 export interface Cat {
-    animal?: AnimalInfo;
-    cat?: CatInfo;
+    animal: AnimalInfo;
+    cat: CatInfo;
 }
