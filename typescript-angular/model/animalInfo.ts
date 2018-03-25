@@ -37,6 +37,6 @@ export interface AnimalInfo {
     medicalHistoryId?: MedicalHistoryId;
     kennelId?: KennelId;
     bio?: string;
-    photos?: PhotoId;
+    photos?: Array<PhotoId>;
     notes?: Array<NoteId>;
 }
