@@ -19,6 +19,7 @@ import { Observable }                                        from 'rxjs/Observab
 import '../rxjs-operators';
 
 import { Intake } from '../model/intake';
+import { JsonPatch } from '../model/jsonPatch';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -129,7 +130,7 @@ export class PublicService {
      * @param id unique id of Intake to patch
      * @param patchIntake partial json object of Intake with fields to patch
      */
-    public patchIntakeById(id: string, patchIntake: Intake): Observable<{}> {
+    public patchIntakeById(id: string, patchIntake: JsonPatch): Observable<{}> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling patchIntakeById.');
         }
