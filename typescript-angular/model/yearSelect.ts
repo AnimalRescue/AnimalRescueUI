@@ -12,7 +12,7 @@
 
 
 
-export type YearSelect = 2000 | 2001 | 2002 | 2003 | 2004 | 2005 | 2006 | 2007 | 2008 | 2009 | 2010 | 2011 | 2012 | 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029 | 2030 | 2031 | 2032 | 2033 | 2034 | 2035 | 2036 | 2037 | 2038 | 2039 | 2040 | 2041 | 2042 | 2043 | 2044 | 2045 | 2046 | 2047 | 2048 | 2049;
+export type YearSelect = 2000 | 2001 | 2002 | 2003 | 2004 | 2005 | 2006 | 2007 | 2008 | 2009 | 2010 | 2011 | 2012 | 2013 | 2014 | 2015 | 2016 | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | 2024 | 2025 | 2026 | 2027 | 2028 | 2029 | 2030;
 
 export const YearSelect = {
     NUMBER_2000: 2000 as YearSelect,
@@ -45,24 +45,5 @@ export const YearSelect = {
     NUMBER_2027: 2027 as YearSelect,
     NUMBER_2028: 2028 as YearSelect,
     NUMBER_2029: 2029 as YearSelect,
-    NUMBER_2030: 2030 as YearSelect,
-    NUMBER_2031: 2031 as YearSelect,
-    NUMBER_2032: 2032 as YearSelect,
-    NUMBER_2033: 2033 as YearSelect,
-    NUMBER_2034: 2034 as YearSelect,
-    NUMBER_2035: 2035 as YearSelect,
-    NUMBER_2036: 2036 as YearSelect,
-    NUMBER_2037: 2037 as YearSelect,
-    NUMBER_2038: 2038 as YearSelect,
-    NUMBER_2039: 2039 as YearSelect,
-    NUMBER_2040: 2040 as YearSelect,
-    NUMBER_2041: 2041 as YearSelect,
-    NUMBER_2042: 2042 as YearSelect,
-    NUMBER_2043: 2043 as YearSelect,
-    NUMBER_2044: 2044 as YearSelect,
-    NUMBER_2045: 2045 as YearSelect,
-    NUMBER_2046: 2046 as YearSelect,
-    NUMBER_2047: 2047 as YearSelect,
-    NUMBER_2048: 2048 as YearSelect,
-    NUMBER_2049: 2049 as YearSelect
+    NUMBER_2030: 2030 as YearSelect
 }
