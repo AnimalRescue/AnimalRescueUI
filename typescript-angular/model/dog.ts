@@ -26,6 +26,6 @@ import { PhotoId } from './photoId';
 
 
 export interface Dog extends AnimalInfo {
-    breed?: DogBreeds;
-    color?: DogColors;
+    breed: DogBreeds;
+    color: DogColors;
 }
