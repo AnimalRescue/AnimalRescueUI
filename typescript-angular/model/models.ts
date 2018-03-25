@@ -17,6 +17,7 @@ export * from './dayOfWeekSelect';
 export * from './doNotAdoptEntry';
 export * from './doNotAdoptId';
 export * from './doNotAdoptList';
+export * from './dog';
 export * from './dogBreeds';
 export * from './dogColors';
 export * from './emailAddress';
