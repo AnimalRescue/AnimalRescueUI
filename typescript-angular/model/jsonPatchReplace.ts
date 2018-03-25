@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { DefinitionsJsonPointer } from './definitionsJsonPointer';
+import { JsonPointer } from './jsonPointer';
 
 
 /**
@@ -18,7 +18,7 @@ import { DefinitionsJsonPointer } from './definitionsJsonPointer';
  */
 export interface JsonPatchReplace {
     op: JsonPatchReplace.OpEnum;
-    path: DefinitionsJsonPointer;
+    path: JsonPointer;
 }
 export namespace JsonPatchReplace {
     export type OpEnum = 'replace';
