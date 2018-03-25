@@ -25,12 +25,12 @@ import { ParNumber } from './parNumber';
 export interface Intake {
     id: IntakeId;
     parNumber: ParNumber;
-    animalInfoId?: AnimalId;
+    animalInfoId: AnimalId;
     dateOfIntake: string;
     typeOfIntake: IntakeType;
     surrendingPartyId?: ContactId;
     transferringShelterId?: OrganizationId;
-    placeInIsolation: boolean;
+    placeInIsolation?: boolean;
     staffId?: ContactId;
     notes?: Array<NoteId>;
 }
