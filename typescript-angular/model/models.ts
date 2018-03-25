@@ -53,7 +53,6 @@ export * from './location';
 export * from './locationId';
 export * from './medicalEvent';
 export * from './medicalEventId';
-export * from './medicalEventSupportingData';
 export * from './medicalEventType';
 export * from './medicalHistory';
 export * from './medicalHistoryId';

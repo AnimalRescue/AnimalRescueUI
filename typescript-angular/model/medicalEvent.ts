@@ -12,16 +12,16 @@
 
 import { ContactId } from './contactId';
 import { MedicalEventId } from './medicalEventId';
-import { MedicalEventSupportingData } from './medicalEventSupportingData';
 import { MedicalEventType } from './medicalEventType';
 import { NoteId } from './noteId';
+import { SupportingMedicalDataId } from './supportingMedicalDataId';
 
 
 export interface MedicalEvent {
     id: MedicalEventId;
     timestamp: Date;
     type: MedicalEventType;
-    supportingData: MedicalEventSupportingData;
+    supportingData: SupportingMedicalDataId;
     notes?: Array<NoteId>;
     createdBy: ContactId;
 }
