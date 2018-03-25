@@ -10,22 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { AdoptionStatus } from './adoptionStatus';
-import { AnimalId } from './animalId';
 import { AnimalInfo } from './animalInfo';
-import { AnimalType } from './animalType';
-import { CatBreeds } from './catBreeds';
-import { CatColors } from './catColors';
-import { Gender } from './gender';
-import { KennelId } from './kennelId';
-import { LitterId } from './litterId';
-import { MedicalHistoryId } from './medicalHistoryId';
-import { NoteId } from './noteId';
-import { ParNumber } from './parNumber';
-import { PhotoId } from './photoId';
+import { CatInfo } from './catInfo';
 
 
-export interface Cat extends AnimalInfo {
-    breed: CatBreeds;
-    color: CatColors;
+export interface Cat {
+    animal?: AnimalInfo;
+    cat?: CatInfo;
 }
