@@ -166,8 +166,8 @@ export class PublicService {
     }
 
     /**
-     * updates an Intake by id
-     * Updates an existing Foster by id
+     * replaces an Intake by id
+     * Replaces an existing Intake by id
      * @param id 
      * @param updateIntake unique id of Intake to update
      */
