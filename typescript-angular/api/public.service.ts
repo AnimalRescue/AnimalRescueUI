@@ -19,6 +19,7 @@ import { Observable }                                        from 'rxjs/Observab
 import '../rxjs-operators';
 
 import { Intake } from '../model/intake';
+import { JsonPatch } from '../model/jsonPatch';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -127,14 +128,14 @@ export class PublicService {
      * updates an Intake by id
      * Updates an existing Intake by id with only elements that are changing using
      * @param id unique id of Intake to patch
-     * @param patchIntake partial json object of Intake with fields to patch
+     * @param jsonPatch partial json object of Intake with fields to patch
      */
-    public patchIntakeById(id: string, patchIntake: Intake): Observable<{}> {
+    public patchIntakeById(id: string, jsonPatch: JsonPatch): Observable<{}> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling patchIntakeById.');
         }
-        if (patchIntake === null || patchIntake === undefined) {
-            throw new Error('Required parameter patchIntake was null or undefined when calling patchIntakeById.');
+        if (jsonPatch === null || jsonPatch === undefined) {
+            throw new Error('Required parameter jsonPatch was null or undefined when calling patchIntakeById.');
         }
 
         let headers = this.defaultHeaders;
@@ -157,7 +158,7 @@ export class PublicService {
         }
 
         return this.httpClient.patch<any>(`${this.basePath}/intake/${encodeURIComponent(String(id))}`,
-            patchIntake,
+            jsonPatch,
             {
                 headers: headers,
                 withCredentials: this.configuration.withCredentials,
