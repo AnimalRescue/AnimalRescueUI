@@ -125,7 +125,7 @@ export class PublicService {
 
     /**
      * updates an Intake by id
-     * Updates an existing Intake by id with only elements that are changing
+     * Updates an existing Intake by id with only elements that are changing using
      * @param id unique id of Intake to patch
      * @param patchIntake partial json object of Intake with fields to patch
      */
@@ -169,14 +169,14 @@ export class PublicService {
      * replaces an Intake by id
      * Replaces an existing Intake by id
      * @param id 
-     * @param updateIntake unique id of Intake to update
+     * @param intake unique id of Intake to update
      */
-    public updateIntakeById(id: string, updateIntake: Intake): Observable<{}> {
+    public updateIntakeById(id: string, intake: Intake): Observable<{}> {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling updateIntakeById.');
         }
-        if (updateIntake === null || updateIntake === undefined) {
-            throw new Error('Required parameter updateIntake was null or undefined when calling updateIntakeById.');
+        if (intake === null || intake === undefined) {
+            throw new Error('Required parameter intake was null or undefined when calling updateIntakeById.');
         }
 
         let headers = this.defaultHeaders;
@@ -199,7 +199,7 @@ export class PublicService {
         }
 
         return this.httpClient.put<any>(`${this.basePath}/intake/${encodeURIComponent(String(id))}`,
-            updateIntake,
+            intake,
             {
                 headers: headers,
                 withCredentials: this.configuration.withCredentials,
