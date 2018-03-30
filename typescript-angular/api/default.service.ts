@@ -98,15 +98,15 @@ export class DefaultService {
 
     /**
      * Returns a filtered list of all Intakes for the Rescue
-     * Intake serves as the aggregate for the process of bringing animals into the Rescue
+     * Returns an array of IntakeList structures.  Intake serves as the aggregate for the process of bringing animals into the Rescue.
      * @param limit Limits the number of items on a page
-     * @param offset Specifies the page number of the artists to be displayed
+     * @param offset Specifies the page number of the items to be displayed
      * @param fromDate Specifies the first intake date to return
-     * @param status Adoption Status of Pending, Available, Medical, Hold
-     * @param location Specifies a search string found int Location, Building, Room, Kennel, or Enclosure name
-     * @param name Specifies a matching pattern for the name
+     * @param type Intake type of Surrender, Transfer, or Stray
+     * @param location Specifies a search string found in Location, Building, Room, Kennel, or Enclosure name
+     * @param searchString pass an optional search string for looking up items
      */
-    public getFilteredIntakes(limit?: number, offset?: number, fromDate?: string, status?: string, location?: string, name?: string): Observable<Array<IntakeList>> {
+    public getFilteredIntakes(limit?: number, offset?: number, fromDate?: string, type?: string, location?: string, searchString?: string): Observable<Array<IntakeList>> {
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
         if (limit !== undefined) {
@@ -118,14 +118,14 @@ export class DefaultService {
         if (fromDate !== undefined) {
             queryParameters = queryParameters.set('fromDate', <any>fromDate);
         }
-        if (status !== undefined) {
-            queryParameters = queryParameters.set('Status', <any>status);
+        if (type !== undefined) {
+            queryParameters = queryParameters.set('type', <any>type);
         }
         if (location !== undefined) {
             queryParameters = queryParameters.set('location', <any>location);
         }
-        if (name !== undefined) {
-            queryParameters = queryParameters.set('name', <any>name);
+        if (searchString !== undefined) {
+            queryParameters = queryParameters.set('searchString', <any>searchString);
         }
 
         let headers = this.defaultHeaders;
