@@ -10,12 +10,13 @@
  * Do not edit the class manually.
  */
 
+import { ContactId } from './contactId';
+import { NoteId } from './noteId';
 
 
-export type PhoneNumberPurpose = 'Primary' | 'Alternate' | 'Notification';
-
-export const PhoneNumberPurpose = {
-    Primary: 'Primary' as PhoneNumberPurpose,
-    Alternate: 'Alternate' as PhoneNumberPurpose,
-    Notification: 'Notification' as PhoneNumberPurpose
+export interface Note {
+    id: NoteId;
+    createdBy?: ContactId;
+    timeStamp?: Date;
+    content?: string;
 }

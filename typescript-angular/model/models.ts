@@ -53,6 +53,7 @@ export * from './medicalEventType';
 export * from './medicalHistory';
 export * from './medicalHistoryId';
 export * from './monthSelect';
+export * from './note';
 export * from './noteId';
 export * from './organization';
 export * from './organizationId';
