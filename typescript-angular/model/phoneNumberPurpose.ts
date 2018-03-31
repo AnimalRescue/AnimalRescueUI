@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 
+import { ContactId } from './contactId';
+import { NoteId } from './noteId';
 
 
 export type PhoneNumberPurpose = 'Primary' | 'Alternate' | 'Notification';
