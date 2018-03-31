@@ -101,12 +101,13 @@ export class DefaultService {
      * Returns an array of IntakeList structures.  Intake serves as the aggregate for the process of bringing animals into the Rescue.
      * @param limit Limits the number of items on a page
      * @param offset Specifies the page number of the items to be displayed
+     * @param animalType Specifies cat or dog
      * @param fromDate Specifies the first intake date to return
      * @param type Intake type of Surrender, Transfer, or Stray
      * @param location Specifies a search string found in Location, Building, Room, Kennel, or Enclosure name
      * @param searchString pass an optional search string for looking up items
      */
-    public getFilteredIntakes(limit?: number, offset?: number, fromDate?: string, type?: string, location?: string, searchString?: string): Observable<Array<IntakeList>> {
+    public getFilteredIntakes(limit?: number, offset?: number, animalType?: string, fromDate?: string, type?: string, location?: string, searchString?: string): Observable<Array<IntakeList>> {
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
         if (limit !== undefined) {
@@ -114,6 +115,9 @@ export class DefaultService {
         }
         if (offset !== undefined) {
             queryParameters = queryParameters.set('offset', <any>offset);
+        }
+        if (animalType !== undefined) {
+            queryParameters = queryParameters.set('animalType', <any>animalType);
         }
         if (fromDate !== undefined) {
             queryParameters = queryParameters.set('fromDate', <any>fromDate);
